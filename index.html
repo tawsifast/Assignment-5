@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="min-h-screen max-w-md bg-base-200 mx-auto">
+
+    <div class="logo pt-10 space-y-3 mx-auto">
+        <img class="w-[120px] mx-auto" src="./assets/github-logo.png" alt="">
+        <h2 class="font-bold text-2xl text-center">GitHub Issues Tracker</h2>
+        <p class="text-center">Sign in to manage your issues</p>
+    </div>
+
+    <div class="form pt-5 ">
+         <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-sm mx-auto rounded-2xl">
+      <div class="card-body">
+        <fieldset class="fieldset">
+          <label class="label text-neutral font-bold">Username</label>
+          <input id="user-name" type="text" maxlength="11" minlength="11" class="input rounded-full bg-base-200" value="admin" placeholder="Enter username" /> 
+          <p class="text-[#4A00FF]">Default: admin</p><br>
+          <label class="label text-neutral font-bold">Password</label>
+          <input id="input-pass" type="password" maxlength="8" class="input rounded-full bg-base-200" placeholder="Enter Password" />
+           <p class="text-[#4A00FF]">Default: admin123</p>
+          <!-- <div><a class="link link-hover">Forgot password?</a></div> -->
+          <button id="sign-in-btn" class="btn btn-primary rounded-full mt-4">Sign In</button>
+          
+          <p class="text-xl text-center">or</p>
+          <p class="text-center">Demo Credential</p>
+          <br>
+          <p class="text-center">Username: admin <br> Password: admin123</p>
+        </fieldset>
+      </div>
+     </div>
+    </div>
+
+   <script src="./JS/login.js"></script>
+</body>
+</html>
