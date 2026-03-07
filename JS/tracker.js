@@ -33,10 +33,51 @@ async function getAllIssue (){
 
 getAllIssue();
 
+// card er detials load hobe
+async function loadWordDetail(id){
+    const url =`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`
+    console.log(url);
+    const res = await fetch(url);
+    const details = await res.json();
+    displayCardDetails(details.data);
+}
+
+// card er details modal e show hobe
+function displayCardDetails(array){
+console.log(array);
+const detailBox = document.getElementById("details-container");
+detailBox.innerHTML= `
+    
+      <h3 class="text-2xl font-bold">${array.title}</h3>
+    <div class="flex items-center gap-3">
+        <h2 class="badge badge-md badge-success font-semibold">${array.status}</h2>
+        <p class="text-gray-600">Opened by ${array.assignee}</p>
+        <p class="text-gray-600">22/02/2026</p>
+    </div>
+    <div class>
+        <h2 class="badge badge-sm badge-soft badge-error font-semibold"><i class="fa-solid fa-bug"></i>${array.labels[0]}</h2>
+        <h2 class="badge badge-sm badge-warning font-semibold"><i class="fa-solid fa-circle-radiation"></i>${array.labels[1]}</h2>
+    </div>
+    <p class="text-gray-600">${array.description}</p>
+    <div class="flex gap-30 items-center">
+        <div>
+            <p class="text-gray-600">Assignee:</p>
+            <p>${array.assignee}</p>
+        </div>
+        <div>
+            <p class="text-gray-600">Priority:</p>
+         <h2 class="badge badge-error">${array.priority}</h2>
+        </div>
+    </div>
+  
+`
+document.getElementById("details_modal_1").showModal()
+
+}
 
 
 function displayAllIssue(issue){
-    showLoading();
+
     cardContainer.innerHTML ="";
     issue.forEach(card => {
     console.log(card);
@@ -50,18 +91,18 @@ function displayAllIssue(issue){
     const img = card.status === "open" ? '<img src="./assets/Open-Status.png" alt=""></img>' : '<img src="./assets/Closed- Status .png" alt=""></img>';
 
     cardDiv.innerHTML =`
-    <div class="card bg-base-100 shadow-sm border-t-4 ${borderColor} h-full">
+    <div onclick="loadWordDetail(${card.id})" class="card bg-base-100 shadow-sm border-t-4 ${borderColor} h-full">
     <div class="card-body ">
     <div class="flex justify-between">
         ${img}
-        <h2 class="badge badge-soft badge-xs badge-error font-semibold">${card.priority}</h2>
+        <h2 class="badge badge-soft badge-sm badge-error font-semibold">${card.priority}</h2>
     </div>
     <h2 class="font-semibold text-lg">${card.title}</h2>
     <p class="line-clamp-2">${card.description}</p>
     <div>
 
-        <h2 class="badge badge-xs badge-warning font-semibold"><i class="fa-solid fa-bug"></i>Bug</h2>
-        <h2 class="badge badge-xs badge-warning font-semibold"><i class="fa-solid fa-circle-radiation"></i>Help Wanted</h2>
+        <h2 class="badge badge-sm badge-soft badge-error font-semibold gap-1"><i class="fa-solid fa-bug"></i>${card.labels[0]}</h2>
+        <h2 class="badge badge-sm badge-warning font-semibold gap-1"><i class="fa-solid fa-circle-radiation"></i>${card.labels[1]}</h2>
     </div>
     <hr class="opacity-20">
      <div class="">
@@ -78,15 +119,14 @@ function displayAllIssue(issue){
         cardContainer.append(cardDiv);
        
     });
- hideLoading();
-}
 
+}
 
 
 // parameter status hobe button er onlick er 1st argument
 // jei button click korbo oi button er info jabe 
  async function filterIssues(status, btnid){
-
+showLoading();
    const buttons = [allBtn, openBtn, closeBtn];
 
    buttons.forEach((btn)=>{
@@ -98,7 +138,7 @@ function displayAllIssue(issue){
     const selectedBtn = document.getElementById(btnid);
     selectedBtn.classList.add("btn-primary")
     selectedBtn.classList.remove("btn-outline")
-
+    hideLoading();
     let filtered ;
     showLoading();
     // status holo button er arguments 
