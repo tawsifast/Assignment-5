@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracker</title>
+  <!-- daisy ui & tailwind -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- font awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body >
+<section>
+    <nav>
+        <div class="flex justify-between py-5">
+
+            <div class="flex items-center gap-5">
+                <img class="w-[50px]" src="./assets/github-logo.png" alt="">
+                <h2>GitHub Issues Tracker</h2>
+            </div>
+        <div class="flex items-center gap-3">
+              <label class="input w-[250px] ">
+  <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g
+      stroke-linejoin="round"
+      stroke-linecap="round"
+      stroke-width="2.5"
+      fill="none"
+      stroke="currentColor"
+    >
+      <circle cx="11" cy="11" r="8"></circle>
+      <path d="m21 21-4.3-4.3"></path>
+    </g>
+  </svg>
+  <input type="search" required placeholder="Search" />
+</label>
+        <button class="btn btn-primary">New Issue</button>
+            </div>
+        </div>
+    </nav>
+</section>
+
+<section id="btn-container" class="w-11/12 mx-auto shadow-sm p-5 mb-5 rounded-md">
+<div>
+    <button>All</button>
+    <button>Open</button>
+    <button>Closed</button>
+</div>
+</section>
+
+<section id="issue-container" class="w-11/12 mx-auto shadow-sm p-5 mb-5 rounded-md">
+    <div class="flex justify-between">
+        <div class="flex justify-between items-center gap-3">
+            <div>
+                <img src="./assets/Aperture.png" alt="">
+            </div>
+            <div>
+                <h2 class="font-bold text-xl">50 Issues</h2>
+                <p>Track and manage your project issues</p>
+            </div>
+        </div>
+        <div class="flex justify-between gap-5">  
+            <p class="flex items-center gap-2"><span class="badge badge-success badge-xs"></span>Open</p>
+            <p class="flex items-center gap-2"><span class="badge badge-error badge-xs"></span>Closed</p>
+        </div>
+    </div>
+</section>
+
+
+<section id="allIssueContainer">
+<div id="card-container" class="w-11/12 mx-auto grid grid-cols-4 gap-5">
+
+<!-- <div class="card  bg-base-100 shadow-sm border-t-4 border-green-300">
+    <div class="card-body">
+    <div class="flex justify-between">
+        <img src="./assets/Open-Status.png" alt="">
+        <h2 class="badge badge-xs badge-warning">High</h2>
+    </div>
+    <h2>Fix navigation menu on mobile devices</h2>
+    <p>The navigation menu doesn't collapse properly on mobile devices...</p>
+    <div>
+        <h2 class="badge badge-xs badge-warning">Bug</h2>
+        <h2 class="badge badge-xs badge-warning">Help Wanted</h2>
+    </div>
+    <hr class="opacity-20">
+     <div class="">
+        <p>#1 by john_doe</p>
+        <p>1/15/2024</p>
+    </div>
+    </div>
+   
+</div> -->
+
+
+
+
+
+
+
+</div>
+
+</section>
+    <script src="./JS/tracker.js"></script>
+</body>
+</html>

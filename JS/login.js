@@ -9,7 +9,8 @@ signInBtn.addEventListener("click", function(){
     console.log(inputPassValue);
 
     if(userNameValue == "admin" && inputPassValue == "admin123"){
-        alert("Sign Successfull")
+        alert("Sign Successfull");
+         window.location.assign("/tracker.html");
     }else{
         alert("Sign in Failed");
         return;
