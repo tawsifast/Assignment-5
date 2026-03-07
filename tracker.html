@@ -13,6 +13,7 @@
 
 </head>
 <body >
+
 <section>
     <nav>
         <div class="flex justify-between py-5">
@@ -43,11 +44,11 @@
     </nav>
 </section>
 
-<section id="btn-container" class="w-11/12 mx-auto shadow-sm p-5 mb-5 rounded-md">
-<div>
-    <button>All</button>
-    <button>Open</button>
-    <button>Closed</button>
+<section id="btn-container" class="w-11/12 mx-auto shadow-sm p-5 mb-5 rounded-md ">
+<div class="flex gap-4 items-center">
+    <button onclick="filterIssues('all', id)" id="all-btn" class="btn btn-primary">All</button>
+    <button onclick="filterIssues('open', id)" id="open-btn" class="btn btn-outline">Open</button>
+    <button onclick="filterIssues('closed', id)" id="close-btn" class="btn btn-outline">Closed</button>    
 </div>
 </section>
 
@@ -103,6 +104,7 @@
 </div>
 
 </section>
+<script src="./JS/ide.js"></script>
     <script src="./JS/tracker.js"></script>
 </body>
 </html>
