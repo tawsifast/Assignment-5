@@ -1,8 +1,4 @@
-function count(){
-    total.innerText = filtered.length;
-    total.innerText = allIssues.length;
 
-}
 
 const allIssueContainer = document.getElementById("allIssueContainer");
 const cardContainer = document.getElementById("card-container");
@@ -10,15 +6,26 @@ const allBtn = document.getElementById("all-btn");
 const openBtn = document.getElementById("open-btn");
 const closeBtn = document.getElementById("close-btn");
 const total = document.getElementById("total");
+const loadingSpinner = document.getElementById("laodingSpinner")
 
 let allIssues = [];
 
+function showLoading(){
+    loadingSpinner.classList.remove("hidden");
+    cardContainer.innerHTML = "";
+}
+function hideLoading(){
+    loadingSpinner.classList.add("hidden");
+}
 
 
 async function getAllIssue (){
+   showLoading();
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
     const data = await res.json();
-    allIssues = data.data
+    hideLoading();
+    allIssues = data.data;
+
     displayAllIssue(allIssues);
     total.innerText = allIssues.length;
 
@@ -29,7 +36,7 @@ getAllIssue();
 
 
 function displayAllIssue(issue){
-    
+    showLoading();
     cardContainer.innerHTML ="";
     issue.forEach(card => {
     console.log(card);
@@ -71,7 +78,7 @@ function displayAllIssue(issue){
         cardContainer.append(cardDiv);
        
     });
- 
+ hideLoading();
 }
 
 
@@ -93,17 +100,20 @@ function displayAllIssue(issue){
     selectedBtn.classList.remove("btn-outline")
 
     let filtered ;
+    showLoading();
     // status holo button er arguments 
     if(status == "all"){
         filtered = allIssues;
         // total card number count korbe
         total.innerText =filtered.length;
-         
+         hideLoading();
     }else{
+        showLoading();
         // all button e jodi click na kore tahole ekhane asbe & open/close button e click onujai card gulo nia array banabe
         filtered = allIssues.filter((issue) => issue.status === status);
             
         total.innerText =filtered.length;
+        hideLoading();
     }
     // filter er maddhome j arra hoyece ta ekhane argument akare pathabe and page e show hobe
     displayAllIssue(filtered);
