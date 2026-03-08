@@ -51,8 +51,8 @@ detailBox.innerHTML= `
       <h3 class="text-2xl font-bold">${array.title}</h3>
     <div class="flex items-center gap-3">
         <h2 class="badge badge-md badge-success font-semibold">${array.status}</h2>
-        <p class="text-gray-600">Opened by ${array.assignee}</p>
-        <p class="text-gray-600">22/02/2026</p>
+        <p class="text-gray-600">Opened by ${array.author}</p>
+        <p class="text-gray-600">${new Date(array.createdAt).toLocaleDateString()}</p>
     </div>
     <div class>
         <h2 class="badge badge-sm badge-soft badge-error font-semibold"><i class="fa-solid fa-bug"></i>${array.labels[0]}</h2>
@@ -62,7 +62,7 @@ detailBox.innerHTML= `
     <div class="flex gap-30 items-center">
         <div>
             <p class="text-gray-600">Assignee:</p>
-            <p>${array.assignee}</p>
+            <p class="text-gray-600">${array.assignee ? array.assignee : "not found"}</p>
         </div>
         <div>
             <p class="text-gray-600">Priority:</p>
@@ -105,11 +105,15 @@ function displayAllIssue(issue){
         <h2 class="badge badge-sm badge-warning font-semibold gap-1"><i class="fa-solid fa-circle-radiation"></i>${card.labels[1]}</h2>
     </div>
     <hr class="opacity-20">
-     <div class="">
+     <div class="flex justify-between">
      <div>
-      <p><span>#${card.id} by</span> ${card.author}</p>
-        <p>1/15/2024</p>
-        </div>
+        <p><span>#${card.id} by</span> ${card.author}</p>
+        <p>Assignee : ${card.assignee ? card.assignee: "not found"}</p>
+     </div>
+     <div>
+     <p>${new Date(card.createdAt).toLocaleDateString()}</p>
+     <p>${new Date(card.updatedAt).toLocaleDateString()}</p>
+     </div>
     </div>
     </div>
    
@@ -159,6 +163,24 @@ showLoading();
     displayAllIssue(filtered);
 
 }
+
+
+
+// by searching display search value
+ document.getElementById("btn-search").addEventListener("click",async () => {
+    showLoading();
+    const input = document.getElementById("input-search");
+    const searchValue = input.value.trim().toLowerCase();
+    console.log(searchValue);
+   const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
+   const searchData = await res.json();
+   console.log(searchData);
+   const allIssue = searchData.data;
+   console.log(allIssue);
+   const filterissue = allIssue.filter((name)=> name.title.toLowerCase().includes(searchValue));
+  displayAllIssue(filterissue);
+  hideLoading();
+})
 
 
 
