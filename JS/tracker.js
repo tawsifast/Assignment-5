@@ -108,11 +108,11 @@ function displayAllIssue(issue){
     </div>
     <hr class="opacity-20">
      <div class="flex justify-between">
-     <div>
+     <div class="space-y-2">
         <p><span>#${card.id} by</span> ${card.author}</p>
         <p>Assignee : ${card.assignee ? card.assignee: "Unassigned"}</p>
      </div>
-     <div>
+     <div class="space-y-2">
      <p>${new Date(card.createdAt).toLocaleDateString()}</p>
      <p>${new Date(card.updatedAt).toLocaleDateString()}</p>
      </div>
