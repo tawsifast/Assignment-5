@@ -101,8 +101,8 @@ function displayAllIssue(issue){
     <p class="line-clamp-2">${card.description}</p>
     <div>
 
-        <h2 class="badge badge-sm badge-soft badge-error font-semibold gap-1"><i class="fa-solid fa-bug"></i>${card.labels[0]}</h2>
-        <h2 class="badge badge-sm badge-warning font-semibold gap-1"><i class="fa-solid fa-circle-radiation"></i>${card.labels[1]}</h2>
+        <h2 class="badge badge-xs badge-soft badge-error font-semibold gap-1"><i class="fa-solid fa-bug"></i>${card.labels[0]}</h2>
+        <h2 class="badge badge-xs badge-warning font-semibold gap-1"><i class="fa-solid fa-circle-radiation"></i>${card.labels[1]}</h2>
     </div>
     <hr class="opacity-20">
      <div class="flex justify-between">
@@ -116,7 +116,6 @@ function displayAllIssue(issue){
      </div>
     </div>
     </div>
-   
 </div>
         
         `
