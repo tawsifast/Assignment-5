@@ -108,7 +108,7 @@ function displayAllIssue(issue){
      <div class="flex justify-between">
      <div>
         <p><span>#${card.id} by</span> ${card.author}</p>
-        <p>Assignee : ${card.assignee ? card.assignee: "not found"}</p>
+        <p>Assignee : ${card.assignee ? card.assignee: "Unassigned"}</p>
      </div>
      <div>
      <p>${new Date(card.createdAt).toLocaleDateString()}</p>
