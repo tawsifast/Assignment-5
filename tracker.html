@@ -42,14 +42,14 @@
 
 
 <section>
-    <nav>
-        <div class="flex justify-between py-5">
+     <nav>
+        <div class="grid grid-cols-1 sm:grid-cols-2 justify-between py-5">
 
-            <div class="flex items-center gap-5">
-                <img class="w-[50px]" src="./assets/github-logo.png" alt="">
+            <div class="flex justify-center mb-6 sm:justify-start flex-row items-center gap-5">
+                <img class="w-[100px] sm:w-[50px]" src="./assets/github-logo.png" alt="">
                 <h2 class="font-bold text-2xl">GitHub Issues Tracker</h2>
             </div>
-        <div class="flex items-center gap-3">
+        <div class="flex justify-center sm:justify-end items-center gap-3 ">
     <label class="input w-[250px] ">
  
         <input id="input-search" type="search" required placeholder="Search Title" />
@@ -61,7 +61,7 @@
 </section>
 
 <section id="btn-container" class="w-11/12 mx-auto shadow-sm p-5 mb-5 rounded-md ">
-<div class="flex gap-4 items-center">
+<div class=" flex justify-center sm:justify-start gap-4 items-center">
     <button onclick="filterIssues('all', id)" id="all-btn" class="btn btn-primary">All</button>
     <button onclick="filterIssues('open', id)" id="open-btn" class="btn btn-outline">Open</button>
     <button onclick="filterIssues('closed', id)" id="close-btn" class="btn btn-outline">Closed</button>    
