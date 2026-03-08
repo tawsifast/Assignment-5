@@ -87,6 +87,8 @@ function displayAllIssue(issue){
     // status open/close hole border color change hobe
     const borderColor = card.status === "open" ? "border-green-500" : "border-red-500";
 
+    const priority = card.priority === "high" ? "badge-error" : card.priority === "medium" ? "badge-warning" : "text-gray-600";
+
     // status open/close hole img change hobe
     const img = card.status === "open" ? '<img src="./assets/Open-Status.png" alt=""></img>' : '<img src="./assets/Closed- Status .png" alt=""></img>';
 
@@ -95,7 +97,7 @@ function displayAllIssue(issue){
     <div class="card-body ">
     <div class="flex justify-between">
         ${img}
-        <h2 class="badge badge-soft badge-sm badge-error font-semibold">${card.priority}</h2>
+        <h2 class="badge badge-soft badge-sm font-semibold ${priority}">${card.priority}</h2>
     </div>
     <h2 class="font-semibold text-lg">${card.title}</h2>
     <p class="line-clamp-2">${card.description}</p>
