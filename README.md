@@ -21,6 +21,7 @@ Ans: The spread operator (...) in JavaScript is used to expand or spread element
 
 3️⃣ What is the difference between map(), filter(), and forEach()?
 Ans:  map(), filter(), and forEach() three of them are the method of array.
+
     map() => map() creates a new array by transforming each element of the original array.
 
     filter() => filter() creates a new array with elements that pass a condition.
