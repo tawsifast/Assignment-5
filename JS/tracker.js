@@ -180,6 +180,7 @@ showLoading();
    console.log(allIssue);
    const filterissue = allIssue.filter((name)=> name.title.toLowerCase().includes(searchValue));
   displayAllIssue(filterissue);
+   total.innerText = filterissue.length;
   hideLoading();
 })
 
