@@ -62,7 +62,7 @@ detailBox.innerHTML= `
     <div class="flex gap-30 items-center">
         <div>
             <p class="text-gray-600">Assignee:</p>
-            <p class="text-gray-600">${array.assignee ? array.assignee : "not found"}</p>
+            <p class="text-gray-600">${array.assignee ? array.assignee : "Unassigned"}</p>
         </div>
         <div>
             <p class="text-gray-600">Priority:</p>
